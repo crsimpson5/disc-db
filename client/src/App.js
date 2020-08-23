@@ -66,12 +66,15 @@ export default class App extends React.Component {
     });
 
     if (!this.state.queryTimeout) {
-      this.getDiscData(options);
-
+      this.setState({
+        page: 1
+      }, () => {
+        this.getDiscData(options);
+      });
+      
       this.setState({
         queryTimeout: true,
-        lastQuery: options,
-        page: 1
+        lastQuery: options
       }, () => {
         setTimeout(() => {
           this.setState({
