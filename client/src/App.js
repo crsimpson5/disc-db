@@ -15,7 +15,7 @@ import SearchOptions from "./components/SearchOptions";
 import Pagination from "./components/Pagination";
 import Navbar from "./components/Navbar";
 
-const URL = "http://192.168.1.2:9000"; //"http://localhost:9000"
+// const URL = "http://192.168.1.2:9000"; //"http://localhost:9000"
 
 function Params() {
   let searchParams = new URLSearchParams(useLocation().search);
@@ -42,7 +42,7 @@ export default class App extends React.Component {
   }
   
   getDiscData(options) {
-    let urlToFetch = `${URL}/api?${options || ""}`;
+    let urlToFetch = `/api?${options || ""}`;
     urlToFetch += `&page=${this.state.page}`;
 
     fetch(urlToFetch, {
