@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+$height: 20px;
+$railHeight: 10px;
+
+.flex-box {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-flow: column;
+  top: -10px;
+  max-width: 200px;
+}
+
+.slider {
+  position: relative;
+  width: calc(100% - 20px);
+  height: $height;
+  margin-bottom: 8px;
+}
+
+.rail {
+  position: absolute;
+  width: 100%;
+  height: $railHeight;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 80%)
+}
+
+.handle {
+  position: absolute;
+  margin-left: -10px;
+  z-index: 2;
+  width: 20px;
+  height: $height;
+  border-radius: 3px;
+  background-color: white;
+  cursor: pointer;
+  border: 1px solid #686868;
+}
+
+.track {
+  position: absolute;
+  height: $railHeight;
+  z-index: 1;
+  margin-top: 5px;
+  background-color: #8B9CB6;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+p {
+  position: relative;
+  top: 4px;
+  margin: 0 0 4px 0;
+}

@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+.disc-card {
+  width: 40%;
+  margin: 5%;
+  font-size: .8rem;
+
+  .img-wrapper {
+    position: relative;
+    padding-top: 100%;
+  }
+
+  .placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+  }
+
+  .card-text {
+    padding: 0 5px;
+
+    p {
+      margin: 5px 0 10px 0;
+      font-weight: 500;
+    }
+    
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+
+      span {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 23%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        font-size: .9em;
+      }
+
+      span:before {
+        content: "";
+        padding-top: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .disc-card {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .disc-card {
+    font-size: 1rem;
+    flex-grow: 1;
+    flex-basis: 140px;
+    margin: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .disc-card {
+    width: 150px;
+    margin: 0 2rem 2rem 0;
+    flex-grow: 0;
+  }
+}
+
+

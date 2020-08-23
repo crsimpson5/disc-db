@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+.disc-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 960px) {
+  .disc-container {
+    justify-content: left;
+    padding-left: 1em;
+  }
+}
