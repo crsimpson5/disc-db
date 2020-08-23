@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 const apiRouter = require("./apiRouter");
 
-const PORT = 9000;
+const PORT = process.env.PORT || 9000;
 
 app.use(logger("dev"));
 app.use(cors());
@@ -20,7 +20,5 @@ mongoose.connect("mongodb://localhost/disc-db", {
 });
 
 app.use("/api", apiRouter);
-
-
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}.`));

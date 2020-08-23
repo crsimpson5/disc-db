@@ -13,6 +13,7 @@ import Grid from "@material-ui/core/Grid";
 import DiscCardContainer from "./containers/DiscCardContainer";
 import SearchOptions from "./components/SearchOptions";
 import Pagination from "./components/Pagination";
+import Navbar from "./components/Navbar";
 
 const URL = "http://192.168.1.2:9000"; //"http://localhost:9000"
 
@@ -104,11 +105,7 @@ export default class App extends React.Component {
         <Router>
           <Params />
         </Router>
-        <nav style={{ height: 80, backgroundColor: "hsl(0, 0%, 90%)", marginBottom: 40, display: "flex", alignItems: "center" }}>
-          <Container>
-            <h1 style={{ fontSize: 35, margin: 0 }}>Disc Database</h1>
-          </Container>
-        </nav>
+        <Navbar />
         <Container>
           <Grid container spacing={3}>
             <Grid item xs={12} md={2}>
