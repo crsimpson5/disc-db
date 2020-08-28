@@ -1,7 +1,9 @@
 import React from "react";
 import "./DiscCard.scss";
 
-const src = process.env.IMG_SRC || "/images/";
+const src = process.env.NODE_ENV === "production"
+  ? "https://disc-db-images.s3.us-east-2.amazonaws.com/"
+  : "/images/";
 
 export default function DiscCard(props) {
   return (
