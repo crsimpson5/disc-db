@@ -1,13 +1,15 @@
 import React from "react";
 import "./DiscCard.scss";
 
+const src = process.env.IMG_SRC || "/images/";
+
 export default function DiscCard(props) {
   return (
     <div className="disc-card">
       <div className="img-wrapper">
         <div className="placeholder"></div>
-        <img 
-          src={`/images/${props.disc.imgSrc}`} 
+        <img
+          src={`${src}${props.disc.imgSrc}`} 
           alt={`${props.disc.manufacturer} ${props.disc.name}`}
         />
       </div>

@@ -8,7 +8,6 @@ module.exports = function formatDbQuery(query) {
 
   let queries = [];
 
-
   stats.forEach(stat => {
     const minStat = query[`min${stat}`];
     const maxStat = query[`max${stat}`];
