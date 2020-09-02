@@ -1,22 +1,28 @@
 import React from "react";
-import "./DiscCard.scss";
+import {
+  Link
+} from "react-router-dom";
 
-const src = process.env.NODE_ENV === "production"
-  ? "https://disc-db-images.s3.us-east-2.amazonaws.com/"
-  : "/images/";
+import "./DiscCard.scss";
+import imgSrc from "../utils/imgSrc";
 
 export default function DiscCard(props) {
+  const link = `/disc/${props.disc._id}`;
+
   return (
     <div className="disc-card">
-      <div className="img-wrapper">
-        <div className="placeholder"></div>
-        <img
-          src={`${src}${props.disc.imgSrc}`} 
-          alt={`${props.disc.manufacturer} ${props.disc.name}`}
-        />
-      </div>
+      <Link to={link}>
+        <div className="img-wrapper">
+          <img
+            src={`${imgSrc}${props.disc.imgSrc}`} 
+            alt={`${props.disc.manufacturer} ${props.disc.name}`}
+          />
+        </div>
+      </Link>
       <div className="card-text">
-        <p>{props.disc.name}</p>
+        <Link to={link}>
+          <p>{props.disc.name}</p>
+        </Link>
         <div>
           <span className="speed-lighter">{props.disc.speed}</span>
           <span className="glide-lighter">{props.disc.glide}</span>

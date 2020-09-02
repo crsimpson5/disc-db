@@ -14,7 +14,7 @@ module.exports = {
   },
   findById: (req, res) => {
     disc
-      .findOne({ _id: req.params. id })
+      .findOne({ _id: req.params.id })
       .then(data => res.json(data))
       .catch(err => res.json(err));
   },

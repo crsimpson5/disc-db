@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+.navbar {
+  height: 80px;
+  background-color: hsl(0, 0%, 90%);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    font-size: 2em;
+    margin: 0;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}

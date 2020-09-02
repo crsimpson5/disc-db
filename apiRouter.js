@@ -9,6 +9,7 @@ router.route("/")
   .put(disc.updateMany);
 
 router.route("/:id")
+  .get(disc.findById)
   .delete(disc.deleteOne);
 
 module.exports = router;

@@ -1,7 +1,8 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  useLocation
+  Switch,
+  Route
 } from "react-router-dom";
 
 import "./App.scss";
@@ -14,15 +15,7 @@ import DiscCardContainer from "./containers/DiscCardContainer";
 import SearchOptions from "./components/SearchOptions";
 import Pagination from "./components/Pagination";
 import Navbar from "./components/Navbar";
-
-// const URL = "http://192.168.1.2:9000"; //"http://localhost:9000"
-
-function Params() {
-  let searchParams = new URLSearchParams(useLocation().search);
-
-  searchParams.forEach((v, p) => console.log(p, v));
-  return <div></div>;
-}
+import InfoPage from "./components/InfoPage";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -104,35 +97,41 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <section>
-        <Router>
-          <Params />
-        </Router>
-        <Navbar />
-        <Container>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={2}>
-              <SearchOptions 
-                handleSearchOptionChange={this.handleSearchOptionChange}
-              />
-            </Grid>
-            <Grid item xs md={10}>
-              <DiscCardContainer 
-                discData={this.state.discs}
-                discCount={this.state.discCount}
-                page={this.state.page}
-                handlePageChange={this.handlePageChange}
-                showLoadingSpinner={this.state.showLoadingSpinner}
-              />
-            </Grid>
-          </Grid>
-          <Pagination 
-            count={this.state.discCount}
-            page={this.state.page}
-            handlePageChange={this.handlePageChange}
-          />
-        </Container>
-      </section>
+      <Router>
+        <Switch>
+          <Route path="/disc/:id">
+            <InfoPage />
+          </Route>
+          <Route path="/">
+            <section>
+              <Navbar />
+              <Container>
+                <Grid container spacing={3}>
+                  <Grid item xs={12} md={2}>
+                    <SearchOptions 
+                      handleSearchOptionChange={this.handleSearchOptionChange}
+                    />
+                  </Grid>
+                  <Grid item xs md={10}>
+                    <DiscCardContainer 
+                      discData={this.state.discs}
+                      discCount={this.state.discCount}
+                      page={this.state.page}
+                      handlePageChange={this.handlePageChange}
+                      showLoadingSpinner={this.state.showLoadingSpinner}
+                    />
+                  </Grid>
+                </Grid>
+                <Pagination 
+                  count={this.state.discCount}
+                  page={this.state.page}
+                  handlePageChange={this.handlePageChange}
+                />
+              </Container>
+            </section>
+          </Route>
+        </Switch>
+      </Router>
     );
   }
 }
