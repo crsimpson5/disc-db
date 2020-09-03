@@ -1,15 +1,12 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
 
-import "./App.scss";
-import "./styles/colors.scss";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 
-import InfoPage from "./components/InfoPage";
-import Main from "./containers/Main";
+import DiscCardContainer from "./DiscCardContainer";
+import SearchOptions from "../components/SearchOptions";
+import Pagination from "../components/Pagination";
+import Navbar from "../components/Navbar";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -91,16 +88,32 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route path="/disc/:id">
-            <InfoPage />
-          </Route>
-          <Route path="/">
-            <Main />
-          </Route>
-        </Switch>
-      </Router>
+      <section>
+        <Navbar />
+        <Container>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={2}>
+              <SearchOptions 
+                handleSearchOptionChange={this.handleSearchOptionChange}
+              />
+            </Grid>
+            <Grid item xs md={10}>
+              <DiscCardContainer 
+                discData={this.state.discs}
+                discCount={this.state.discCount}
+                page={this.state.page}
+                handlePageChange={this.handlePageChange}
+                showLoadingSpinner={this.state.showLoadingSpinner}
+              />
+            </Grid>
+          </Grid>
+          <Pagination 
+            count={this.state.discCount}
+            page={this.state.page}
+            handlePageChange={this.handlePageChange}
+          />
+        </Container>
+      </section>
     );
   }
 }
