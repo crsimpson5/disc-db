@@ -4,6 +4,9 @@
 
 This app helps you find the perfect disc golf disc. Use the filters to find discs with your desired specs.
 
+View deployed app: 
+[https://discdb.herokuapp.com/](https://discdb.herokuapp.com/)
+
 ## Technologies
 
 - HTML, CSS, JavaScript
@@ -15,8 +18,5 @@ This app helps you find the perfect disc golf disc. Use the filters to find disc
 ## Features
 
 - Responsive design
-- Pagination for results
-
-## View app
-
-[https://discdb.herokuapp.com/](https://discdb.herokuapp.com/)
+- Custom API for database queries
+- Pagination for search results
